@@ -1,0 +1,93 @@
+## 🔄 Syncing Your Data (Push & Pull)
+
+Your data (tasks, sleep, money, etc.) normally only lives in the browser you're using.
+To carry it between devices — like your phone and laptop — use the **Sync tab**
+inside the app.
+
+### One-time setup
+1. Go to https://github.com and create a free account (if you don't have one).
+2. Click your profile picture (top right) → **Settings**.
+3. Scroll down the left sidebar → **Developer settings**.
+4. Click **Personal access tokens** → **Tokens (classic)**.
+5. Click **Generate new token** → **Generate new token (classic)**.
+6. Give it any name (e.g. `chaos-os`).
+7. Under scopes, check only the box labeled **gist**. Leave everything else unchecked.
+8. Click **Generate token** at the bottom.
+9. Copy the token shown (starts with `ghp_...`) — you can only see it once, so copy
+   it now.
+10. In the app, go to the **Sync** tab, paste the token into "GitHub Token", click
+    **Save**.
+
+### Pushing (saving your data to the cloud)
+1. Go to the **Sync** tab.
+2. Click **↑ PUSH**.
+3. That's it — your data is now saved. The first time you do this, a "Gist ID" will
+   auto-fill on screen. Save that ID somewhere too (note app, screenshot, etc.) —
+   you'll need it on your other device.
+
+### Pulling (loading your data on another device)
+1. On the new device, open the app and go to the **Sync** tab.
+2. Paste in the **same** GitHub token you used before, click **Save**.
+3. Paste in the **Gist ID** from the push step, click **Set**.
+4. Click **↓ PULL**.
+5. Your data from the other device now appears here.
+
+**Heads up:** Pushing always overwrites your saved backup completely. If you make
+changes on two devices before syncing, whichever one you push *last* wins, and the
+other device's changes get overwritten.
+
+## 📅 Syncing with Google Calendar
+
+This lets you push events from the app's Calendar tab into your real Google
+Calendar, and pull your Google Calendar events back into the app. It needs a
+one-time setup since Google requires every app to register itself first.
+
+### One-time setup
+
+1. Go to https://console.cloud.google.com and sign in with your Google account.
+2. Click the project dropdown at the top → **New Project**.
+3. Name it anything (e.g. `chaos-os`) → **Create**. Wait a few seconds, then make
+   sure it's selected in the dropdown.
+4. In the search bar at the top, type **Google Calendar API**, click it, then click
+   **Enable**.
+5. In the left sidebar, click **APIs & Services** → **OAuth consent screen**.
+   - User type: **External** → **Create**.
+   - Fill in the app name (anything) and your email in the two required fields →
+     keep clicking through the steps, leaving everything else default, until it's
+     created.
+6. Still on that consent screen, scroll to **Test users** → **+ Add users** → type
+   in your own Gmail address → **Save**. (This step is required — without it,
+   Google will block your own sign-in.)
+7. In the left sidebar, click **Credentials** → **Create Credentials** → **OAuth
+   client ID**.
+   - Application type: **Web application**.
+   - Under "Authorized JavaScript origins," click **+ Add URI** and enter your
+     site's address with nothing after the domain — no path, no trailing slash.
+     Example: `https://yourusername.github.io` (NOT
+     `https://yourusername.github.io/your-repo/`).
+   - Click **Create**.
+8. Copy the **Client ID** shown (ends in `.apps.googleusercontent.com`).
+9. In the app, go to the **Calendar** tab, paste it into "OAUTH CLIENT ID" → **Save**.
+
+### Connecting
+
+1. In the Calendar tab, click **🔗 Connect**.
+2. A Google sign-in popup appears — pick your account, approve access.
+3. The status line should show "✓ Connected to Google Calendar."
+
+### Pushing events (app → Google Calendar)
+
+Click any day on the calendar grid, add an event, then click **↑ Push Events**.
+Only new events get sent — anything already pushed won't duplicate.
+
+### Pulling events (Google Calendar → app)
+
+Click **↓ Pull Events**. This brings in anything on your real Google Calendar from
+roughly the past month through the next six months, and adds it to the app's
+calendar (marked with a small "G" tag so you can tell it came from Google).
+
+**Heads up:** You'll need to reconnect (click Connect again) each time you open a
+new browser session — the connection isn't saved permanently for security reasons,
+only your Client ID is remembered.
+
+**You can use my pre-made web client : 960256795586-mbh30v8gla1tr7vq25ujq5q6m6e538nr.apps.googleusercontent.com**
