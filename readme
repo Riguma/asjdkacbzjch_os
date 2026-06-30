@@ -1,95 +1,177 @@
-To access and use the app, copy paste the following to your browser: riguma.github.io/asjdkacbzjch_os
+# CHAOS OS // UNIFIED
 
-## 🔄 Syncing Your Data (Push & Pull)
+A gamified, self-contained personal operating system — tasks, study tracking, library,
+finances, goals, sleep, weekly review, a calendar, and a level/XP system, all in one
+HTML file. Runs entirely in your browser, no backend, no installs.
 
-Your data (tasks, sleep, money, etc.) normally only lives in the browser you're using.
-To carry it between devices — like your phone and laptop — use the **Sync tab**
-inside the app.
+---
+
+## 🚀 Getting Started (No GitHub Experience Needed)
+
+This gets your own copy of CHAOS OS live on the internet, so you can use it from
+any device — phone, tablet, laptop — just by visiting a URL.
+
+### Step 1: Create a GitHub account
+1. Go to https://github.com
+2. Click **Sign up**, follow the prompts (free).
+
+### Step 2: Create a new repository
+1. Once logged in, click the **+** icon (top right) → **New repository**.
+2. Name it whatever you like.
+3. Set it to **Public**.
+4. Click **Create repository**.
+
+### Step 3: Upload the app file
+1. On your repo's page, click **Add file** → **Upload files**.
+2. Drag in your HTML file — rename it to exactly `index.html`.
+3. Scroll down, click **Commit changes**.
+
+### Step 4: Turn on GitHub Pages
+1. In your repo, click **Settings** (top menu) → **Pages** (left sidebar).
+2. Under "Build and deployment" → Source: **Deploy from a branch**.
+3. Branch: **main**, folder: **/ (root)** → **Save**.
+4. Wait ~1 minute, refresh the page. A green box shows your live URL, e.g.
+   `https://yourusername.github.io/your-repo/`
+
+### Step 5: Open it
+Visit that URL on any device. Add it to your phone's home screen for quick access.
+
+---
+
+## ✏️ Updating the App
+
+1. Go to your repo on GitHub → click `index.html`.
+2. Click the pencil (✏️) icon, top right.
+3. Select all existing text, delete it, paste in the new version.
+4. Scroll down, add a short commit message, click **Commit changes**.
+5. Wait ~30–60 seconds, revisit your URL. If you don't see the change, hard refresh
+   (Ctrl+Shift+R on desktop) or clear cache on mobile.
+
+**Note:** Updating the file only changes the app's code/UI. Your personal data lives
+separately in your browser's storage and is untouched by this.
+
+---
+
+## 🔄 Syncing Your Data (Push & Pull via GitHub)
+
+Your data normally only lives in the browser you're using. To carry it between
+devices, use the **Sync tab** inside the app.
 
 ### One-time setup
-1. Go to https://github.com and create a free account (if you don't have one).
-2. Click your profile picture (top right) → **Settings**.
-3. Scroll down the left sidebar → **Developer settings**.
-4. Click **Personal access tokens** → **Tokens (classic)**.
-5. Click **Generate new token** → **Generate new token (classic)**.
-6. Give it any name (e.g. `chaos-os`).
-7. Under scopes, check only the box labeled **gist**. Leave everything else unchecked.
-8. Click **Generate token** at the bottom.
-9. Copy the token shown (starts with `ghp_...`) — you can only see it once, so copy
-   it now.
-10. In the app, go to the **Sync** tab, paste the token into "GitHub Token", click
-    **Save**.
+1. GitHub → profile picture (top right) → **Settings**.
+2. Left sidebar → **Developer settings** → **Personal access tokens** →
+   **Tokens (classic)**.
+3. **Generate new token** → **Generate new token (classic)**.
+4. Name it anything (e.g. `chaos-os`).
+5. Under scopes, check only **gist**. Leave everything else unchecked.
+6. **Generate token**, copy it immediately (starts with `ghp_...`) — shown only once.
+7. In the app's Sync tab, paste it into "GitHub Token" → **Save**.
 
-### Pushing (saving your data to the cloud)
-1. Go to the **Sync** tab.
-2. Click **↑ PUSH**.
-3. That's it — your data is now saved. The first time you do this, a "Gist ID" will
-   auto-fill on screen. Save that ID somewhere too (note app, screenshot, etc.) —
-   you'll need it on your other device.
+### Pushing (device → cloud backup)
+1. Sync tab → click **↑ PUSH**.
+2. First push auto-fills a "Gist ID" on screen — save that ID somewhere (note app,
+   screenshot) for use on other devices.
 
-### Pulling (loading your data on another device)
-1. On the new device, open the app and go to the **Sync** tab.
-2. Paste in the **same** GitHub token you used before, click **Save**.
-3. Paste in the **Gist ID** from the push step, click **Set**.
+### Pulling (cloud backup → another device)
+1. On the new device, open the app's Sync tab.
+2. Paste in the same GitHub token → **Save**.
+3. Paste in the Gist ID → **Set**.
 4. Click **↓ PULL**.
-5. Your data from the other device now appears here.
 
-**Heads up:** Pushing always overwrites your saved backup completely. If you make
-changes on two devices before syncing, whichever one you push *last* wins, and the
-other device's changes get overwritten.
+**Heads up:** Pushing overwrites the backup completely. If you edit on two devices
+before syncing, whichever pushes *last* wins — the other device's unsynced changes
+get overwritten.
+
+---
 
 ## 📅 Syncing with Google Calendar
 
-This lets you push events from the app's Calendar tab into your real Google
-Calendar, and pull your Google Calendar events back into the app. It needs a
-one-time setup since Google requires every app to register itself first.
+Push events from the app's Calendar tab into your real Google Calendar, and pull
+your Google Calendar events back into the app.
 
 ### One-time setup
-
-1. Go to https://console.cloud.google.com and sign in with your Google account.
-2. Click the project dropdown at the top → **New Project**.
-3. Name it anything (e.g. `chaos-os`) → **Create**. Wait a few seconds, then make
-   sure it's selected in the dropdown.
-4. In the search bar at the top, type **Google Calendar API**, click it, then click
-   **Enable**.
-5. In the left sidebar, click **APIs & Services** → **OAuth consent screen**.
+1. Go to https://console.cloud.google.com, sign in.
+2. Project dropdown → **New Project** → name it anything → **Create**. Select it
+   once created.
+3. Search bar → **Google Calendar API** → click it → **Enable**.
+4. Left sidebar → **APIs & Services** → **OAuth consent screen**.
    - User type: **External** → **Create**.
-   - Fill in the app name (anything) and your email in the two required fields →
-     keep clicking through the steps, leaving everything else default, until it's
-     created.
-6. Still on that consent screen, scroll to **Test users** → **+ Add users** → type
-   in your own Gmail address → **Save**. (This step is required — without it,
-   Google will block your own sign-in.)
-7. In the left sidebar, click **Credentials** → **Create Credentials** → **OAuth
-   client ID**.
+   - Fill in app name + your email → click through remaining steps with defaults.
+5. Same consent screen → scroll to **Test users** → **+ Add users** → add your own
+   Gmail address → **Save**. (Required, or Google blocks your own sign-in.)
+6. Left sidebar → **Credentials** → **Create Credentials** → **OAuth client ID**.
    - Application type: **Web application**.
-   - Under "Authorized JavaScript origins," click **+ Add URI** and enter your
-     site's address with nothing after the domain — no path, no trailing slash.
-     Example: `https://yourusername.github.io` (NOT
-     `https://yourusername.github.io/your-repo/`).
-   - Click **Create**.
-8. Copy the **Client ID** shown (ends in `.apps.googleusercontent.com`).
-9. In the app, go to the **Calendar** tab, paste it into "OAUTH CLIENT ID" → **Save**.
+   - Under "Authorized JavaScript origins" → **+ Add URI** → enter your site's
+     domain only, no path, no trailing slash:
+     `https://yourusername.github.io`
+   - **Create**.
+7. Copy the **Client ID** (ends in `.apps.googleusercontent.com`).
+8. In the app's Calendar tab, paste it into "OAUTH CLIENT ID" → **Save**.
 
-### Connecting
+### Using it
+- **Connect**: Calendar tab → **🔗 Connect** → pick your Google account → approve.
+- **Push**: add events by clicking a day on the calendar grid, then **↑ Push Events**.
+- **Pull**: click **↓ Pull Events** to bring in real Google Calendar events
+  (roughly past month → next 6 months), tagged with a small "G".
 
-1. In the Calendar tab, click **🔗 Connect**.
-2. A Google sign-in popup appears — pick your account, approve access.
-3. The status line should show "✓ Connected to Google Calendar."
+**Heads up:** You'll need to click Connect again each new browser session — only
+the Client ID is remembered, not the connection itself, for security.
 
-### Pushing events (app → Google Calendar)
+---
 
-Click any day on the calendar grid, add an event, then click **↑ Push Events**.
-Only new events get sent — anything already pushed won't duplicate.
+## 🔐 Is This Safe? (Public Repo + Personal Data)
 
-### Pulling events (Google Calendar → app)
+Short answer: yes, with one nuance worth understanding.
 
-Click **↓ Pull Events**. This brings in anything on your real Google Calendar from
-roughly the past month through the next six months, and adds it to the app's
-calendar (marked with a small "G" tag so you can tell it came from Google).
+**Things that are fine to be public** (and already are, in your repo/README):
+- The **GitHub Pages URL** itself — it's just an empty app shell with zero personal
+  data baked in. Anyone visiting gets a blank instance.
+- The **Google OAuth Client ID** — this is *designed* to be public, the same way
+  every "Sign in with Google" button on the internet exposes its Client ID. It only
+  identifies which app is asking, it can't grant access by itself. Google also
+  locks it to your exact registered origin and (while in Testing mode) to your
+  specific Test User account.
 
-**Heads up:** You'll need to reconnect (click Connect again) each time you open a
-new browser session — the connection isn't saved permanently for security reasons,
-only your Client ID is remembered.
+**Things that must stay private** (never put these in the repo/README):
+- Your **GitHub Personal Access Token** — only ever paste this into the app's Sync
+  tab fields at runtime, never hardcode it into the HTML file.
+- Your **Gist ID** — not secret-secret, but don't share it publicly; anyone with
+  the exact ID/URL can view that Gist's raw contents (it's "unlisted," not
+  encrypted or access-controlled).
 
-**You can use my pre-made web client : 960256795586-mbh30v8gla1tr7vq25ujq5q6m6e538nr.apps.googleusercontent.com**
+**Where your actual data lives:**
+- **Default**: only in your browser's local storage, on your device, never
+  transmitted anywhere.
+- **After Push**: a full JSON snapshot of everything (tasks, money, sleep, mood
+  journal, etc.) sits as plaintext in a GitHub Gist tied to your account. Not
+  indexed/searchable, but not encrypted — readable by anyone who gets the exact
+  link, or technically by GitHub under their own access policies.
+- **Google Calendar sync**: events live in your normal Google Calendar, under
+  your account's standard security.
+
+**Practical takeaway:** for tasks, study logs, money, sleep — this setup is fine,
+low risk, exactly what it's built for. For anything more personal (e.g. mood
+journal entries), be aware the Gist backup isn't truly private, just obscure. If
+that matters to you, a passphrase-encryption layer can be added so the Gist stores
+unreadable ciphertext instead of plain text — ask if you want this built in.
+
+---
+
+## 👉 Just Want to Use Mine?
+
+Don't want to set up your own copy? You're welcome to just use the version that's
+already live and configured:
+
+🔗 **https://riguma.github.io/asjdkacbzjch_os/**
+
+A few things to know if you go this route:
+- It's the exact same app — no sign-up, no install, just open the link.
+- Your data still only lives in *your* browser, on *your* device. I (the owner of
+  this repo) can't see your tasks, mood entries, money logs, or anything else you
+  enter — none of that gets sent to me.
+- If you want GitHub/Google Calendar sync, you'll still need your *own* GitHub
+  token and your *own* Google OAuth Client ID (see the setup sections above) — my
+  setup only covers hosting the app itself, not your personal sync credentials.
+- Since I control this repo, I can update/change the app at any time. If you want
+  full control over your own permanent copy instead, follow the "Getting Started"
+  steps above to host your own.
